@@ -199,7 +199,7 @@ router.get('/contribute', (req, res, next) => {
     })
 })
 
-router.get('/contribute/:id/comment/:type', (req, res, next) => {
+router.get('/contribute/:id/comment/:type', checkAdminType, (req, res, next) => {
   if (+req.params.type === 0 || +req.params.type === 1) {
     CheckComment(req.params.id, req.params.type)
     .then((value) => {

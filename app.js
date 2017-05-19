@@ -72,8 +72,8 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/apis', apis);
 app.use('/admin', (req, res, next) => {
-  req.session.type = 1 // test
-  if (false /*req.session.logined === false*/) {
+  // req.session.type = 1 // test
+  if (req.session.logined === false) {
     res.redirect('/')
   } else {
     next()

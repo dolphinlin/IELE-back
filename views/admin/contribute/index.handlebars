@@ -56,8 +56,8 @@
               <th>投稿文件</th>
               <th width="10%">審查Ａ</th>
               <th width="10%">審查Ｂ</th>
-              <th width="10%">總評比</th>
               {{#if admin}}
+                <th width="10%">總評比</th>
                 <th>投稿者</th>
               {{/if}}
             </tr>
@@ -76,10 +76,10 @@
                 <td>
                   <a href="/admin/contribute/{{id}}/comment/1" class="btn btn-warning">審查評分</a>
                 </td>
-                <td>
-                  <a href="/admin/contribute/{{id}}/comment/3" class="btn btn-warning">總評比</a>
-                </td>
                 {{#if ../admin}}
+                  <td>
+                    <a href="/admin/contribute/{{id}}/comment/3" class="btn btn-warning">總評比</a>
+                  </td>
                   <td>
                     <a href="mailto:{{this.email}}">{{name}}</a>
                   </td>
