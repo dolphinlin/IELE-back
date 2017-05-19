@@ -1,0 +1,133 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        審查投稿 - <strong>{{type}}</strong>
+        <div class="pull-right">
+          <a href="{{typenum}}/edit/">編輯</a>
+        </div>
+      </div>
+      <div class="panel-body">
+        <form class="" onsubmit="return confirm('確定送出！')" method="post">
+          <div class="container-fluid page-header">
+            <div class="col-lg-4 text-center">
+              <p>
+                <strong>
+                  1.主題內容(25%)
+                </strong>
+                <li>主題明確</li>
+                <li>文字通暢</li>
+                <li>文辭達意</li>
+                <li>敘述扼要</li>
+              </p>
+            </div>
+            <div class="col-lg-8">
+              <div class="form-group">
+                <input type="number" class="form-control" name="c1" max="25" min="0" value="{{comment.v1}}" readonly>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid page-header">
+            <div class="col-lg-4 text-center">
+              <p>
+                <strong>
+                  2.組織架構(25%)
+                </strong>
+                <li>章節合理</li>
+                <li>份量適當</li>
+                <li>掌握重點</li>
+                <li>符合APA格式</li>
+              </p>
+            </div>
+            <div class="col-lg-8">
+              <div class="form-group">
+                <input type="number" class="form-control" name="c2" max="25" min="0" value="{{comment.v2}}" readonly>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid page-header">
+            <div class="col-lg-4 text-center">
+              <div class="row">
+                <div class="col-lg-6">
+                  <p>
+                    <strong>
+                      3-1.理論觀點(25%)
+                    </strong>
+                    <li>觀點正確</li>
+                    <li>理論依據</li>
+                    <li>資料可靠</li>
+                    <li>系統論點</li>
+                  </p>
+                </div>
+                <div class="col-lg-6">
+                  <p>
+                    <strong>
+                      3-2.研究設計(25%)
+                    </strong>
+                    <li>方法切合</li>
+                    <li>程序明確</li>
+                    <li>資料具體</li>
+                    <li>信效度合理</li>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="form-group">
+                <input type="number" class="form-control" name="c3" max="25" min="0" value="{{comment.v3}}" readonly>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid page-header">
+            <div class="col-lg-4 text-center">
+              <p>
+                <strong>
+                  4.創見應用(25%)
+                </strong>
+                <li>改進前人論點</li>
+                <li>論點邏輯</li>
+                <li>推論合理</li>
+                <li>實際驗證</li>
+              </p>
+            </div>
+            <div class="col-lg-8">
+              <div class="form-group">
+                <input type="number" class="form-control" name="c4" max="25" min="0" value="{{comment.v4}}" readonly>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid page-header">
+            <div class="col-lg-4 text-center">
+              <p>
+                <h1>
+                  審查結果
+                </h1>
+              </p>
+            </div>
+            <div class="col-lg-8">
+              <div class="form-group">
+                <h2 class="text-warning">
+                  {{result}}
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid page-header">
+            <div class="col-lg-4 text-center">
+              <p>
+                <h1>
+                  審查意見
+                </h1>
+              </p>
+            </div>
+            <div class="col-lg-8">
+              <div class="form-group">
+                <textarea name="comment" rows="8" cols="80" class="form-control" readonly>{{comment.comment}}</textarea>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

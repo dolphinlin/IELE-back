@@ -1,0 +1,20 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">編輯</h3>
+  </div>
+  <div class="panel-body">
+    <form method="post" enctype="multipart/form-data" action="/admin/journal/{{journal.id}}/update">
+      <div class="form-group">
+        <label for="title">期刊名稱</label>
+        <input type="text" class="form-control" name="title" placeholder="期刊名稱" value="{{journal.title}}" required>
+      </div>
+      <div class="form-group">
+        <label for="uploadFile">期刊檔案(如需更新檔案，直接上傳即可覆蓋)</label>
+        <input type="file" name="uploadFile">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">送出</button>
+      </div>
+    </form>
+  </div>
+</div>
