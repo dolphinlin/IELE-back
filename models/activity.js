@@ -81,11 +81,12 @@ class Signup {
     this.phone = user.phone
     this.email = user.email
     this.food = user.food
+    this.unit = user.unit
   }
 
   save(callback) {
-    let cmd = "INSERT INTO signup(act_id, user_id, user_name, user_ic, user_phone, user_mail, food) VALUES((SELECT info FROM pageinfo WHERE name LIKE 'current_act'),?,?,?,?,?,?);"
-    connection.query(cmd, [this.id, this.name, this.ic, this.phone, this.email, this.food], (err, result) => {
+    let cmd = "INSERT INTO signup(act_id, user_id, user_name, user_ic, user_phone, user_mail, food, unit) VALUES((SELECT info FROM pageinfo WHERE name LIKE 'current_act'),?,?,?,?,?,?,?);"
+    connection.query(cmd, [this.id, this.name, this.ic, this.phone, this.email, this.food, this.unit], (err, result) => {
       if (err) {
         callback(err)
       }else {
@@ -96,7 +97,7 @@ class Signup {
 }
 
 function AllSignup(id, callback) {
-  let cmd = "SELECT id, user_name 'name', user_ic 'ic', user_phone 'phone', user_mail 'email', food FROM signup WHERE act_id = ?;"
+  let cmd = "SELECT id, user_name 'name', user_ic 'ic', user_phone 'phone', user_mail 'email', food, unit FROM signup WHERE act_id = ?;"
 
   connection.query(cmd, [id], (err, rows, fields) => {
     if (err) {
@@ -108,7 +109,7 @@ function AllSignup(id, callback) {
 }
 
 function SearchUserActivities(id) {
-  let cmd = "SELECT signup.id, user_name 'name', user_ic 'ic', user_phone 'phone', user_mail 'email', food, activities.title FROM signup, activities WHERE user_id = ? AND activities.id = signup.act_id ORDER BY 1 DESC;"
+  let cmd = "SELECT signup.id, user_name 'name', user_ic 'ic', user_phone 'phone', user_mail 'email', food, unit, activities.title FROM signup, activities WHERE user_id = ? AND activities.id = signup.act_id ORDER BY 1 DESC;"
 
   return new Promise((resolve, reject) => {
     connection.query(cmd, [id], (err, rows, fields) => {

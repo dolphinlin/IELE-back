@@ -217,8 +217,8 @@ router.post('/uploadFile', parseToken, (req, res, next) => {
         if (req.files.uploadFile2) {
           ConCheckDuplicate(req.body.id, 2)
           .then((value) => {
+            let fileName2 = req.files.uploadFile2[0].name.split('.')
             if (value.length === 0) {
-              let fileName2 = req.files.uploadFile2[0].name.split('.')
               req.files.uploadFile2[0].saveFile('public/uploads/' + fileRNDName + '_file2' + '.' + fileName2[fileName2.length - 1], (err, info2) => {
                 if (err) return next(err)
 
@@ -231,7 +231,7 @@ router.post('/uploadFile', parseToken, (req, res, next) => {
                 con2.save()
               })
             } else {
-              req.files.uploadFile1[0].saveFile('public/uploads/' + fileRNDName + '_file2' + '.' + fileName2[fileName2.length - 1], (err, info2) => {
+              req.files.uploadFile2[0].saveFile('public/uploads/' + fileRNDName + '_file2' + '.' + fileName2[fileName2.length - 1], (err, info2) => {
                 if (err) return next(err)
                 fs.remove(path.resolve('./' + value[0].path), err => {
                   if (err) return console.error(err)

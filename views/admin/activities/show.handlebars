@@ -51,6 +51,7 @@
             <th>身分證</th>
             <th>聯絡電話</th>
             <th>連絡信箱</th>
+            <th>服務單位</th>
             <th>餐點葷素</th>
           </tr>
         </thead>
@@ -62,6 +63,11 @@
               <td>{{ic}}</td>
               <td>{{phone}}</td>
               <td>{{email}}</td>
+              {{#if unit}}
+                <td>{{unit}}</td>
+              {{else}}
+                <td>無</td>
+              {{/if}}
               {{#if food}}
                 <td class="text-danger">素</td>
               {{else}}
